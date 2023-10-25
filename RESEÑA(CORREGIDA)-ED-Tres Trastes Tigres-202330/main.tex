@@ -1,0 +1,115 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\begin{document}
+
+Grupo Tres Trastes Tigres
+
+Integrantes:
+
+    Juan Camilo Aguirre Gonzalez
+    
+    Alejandra Landinez Lamadrid 
+    
+    Mariana Guerrero Benavides
+
+
+\vspace{0.5cm}
+Reseña del articulo "Binary Search Revisited: Another Advantage of Fibonacci Search" de Seiichi Nishihara y Hiroji Nishino.
+
+
+Escrito por Aguirre González Juan Camilo
+
+    Universidad del Norte
+    
+    Barranquilla, Colombia
+    
+\section{Introducción}
+
+El artículo "Binary Search Revisited: Another Advantage of Fibonacci Search" \cite{5009548} publicado en el "Instituto de Ingenieros Eléctricos y Electrónicos", conocidos por sus siglas en inglés  (IEEE) en el año 1987 por los autores Seiichi Nishihara y Hiroji Nishino.
+
+
+Seiichi Nishihara y Hiroji Nishino son investigadores pertenecientes a la Universidad de Tsukuba, ubicado en Tsukuba, Japón. Pertenecen a los departamentos de Ciencias de la Computación y al Instituto de Información de Ciencias y Tecnología, respectivamente. A lo largo de su trayectoria profesional, sus trabajos tienen énfasis en: análisis de datos, optimización, matemáticas combinatorias, agrupación de patrones, probabilidad, complejidad computacional, entre otros tópicos.
+
+Los autores en el documento tienen la intención de demostrar la efectividad de la técnica de la Búsqueda de Fibonacci, comparándolo a un método establecido en las Ciencias de la Computación conocido como Búsqueda Binaria. Además de esto, se propone una variación del modelo de Fibonacci, que presenta un 20\%  de efectividad a comparación del método usual de Búsqueda Binaria.
+
+Los algoritmos de búsqueda proveen un aporte significativo al mundo de las matemáticas computacionales, brindando una forma de poder encontrar información indexada en tablas. Su estudio y entendimiento puede significar avances y mejoras aplicables a muchos ámbitos de la vida cotidiana. Los autores entienden que su modelo puede no ser el más óptimo, pero con posteriores investigaciones pueden usar el modelo planteado como base para mejorar y optimizar el tiempo de múltiples algoritmos de búsqueda.
+Esta reseña tiene como propósito mostrar los aportes de Nishihara y Hiroji, además de mostrar las ventajas, desventajas y aspectos a mejorar que pueda tener el modelo propuesto por los investigadores.
+
+
+
+\section{Resumen}
+
+Para poder realizar la reseña, se tiene en cuenta que se inició una investigación previa acerca de los diversos métodos de búsqueda: Binaria y Fibonacci. Además, observar las características, ventajas y desventajas de estos mismos.
+
+Inicialmente, el artículo comienza explicando de manera detallada lo que es el método de búsqueda binaria, que se usa para encontrar una clave en una tabla ordenada. El método de búsqueda binaria utiliza una "clave" para guiarse en la tabla, (ya sea si se encuentra en un lado mayor o menor). Este mismo método puede también abreviarse como "BS" \cite{overholt1973optimal}. Junto a esto, citan demostraciones pasadas que demuestran que la búsqueda Binaria (BS) es teóricamente mejor que la búsqueda Fibonacci. Incluso, llegando a concluir que en promedio, tiene una duración mayor en un 4\%. A pesar de eso, los autores plantean una justificación para el uso de la búsqueda de Fibonacci.
+
+Consecuentemente, se introduce de manera gráfica y numérica al método de Búsqueda de Fibonacci. También se proporciona una explicación del algoritmo computacional de cómo funciona el ya mencionado. Junto a esto, proveen el modelo propuesto, donde minimizan el número de movimientos que se tiene que hacer para encontrar el valor. 
+
+Finalmente, los autores realizan pruebas con relación a la búsqueda usando los tres métodos: búsqueda binaria, búsqueda de Fibonacci y búsqueda de Fibonacci-m (propuesta), donde se demuestra estadísticamente una mejora de más del 10\% de la búsqueda de Fibonacci sobre la búsqueda binaria, y también una mejoría de alrededor del 20\% de la búsqueda de Fibonacci-m sobre la búsqueda binaria. Sin embargo, al final plantean que, aunque la relación dorada fue el que utiliza para el movimiento de la búsqueda de Fibonacci, puede que este no sea el más óptimo para algoritmos de búsqueda, en sí, encontrar la relación más óptima en términos de eficacia y numero de movimientos es un problema abierto.
+
+
+
+\section{Evaluación Crítica}
+
+A primera instancia, los autores Nishihara y Nishino plantean una posible alternativa, variante, al tradicional método de búsqueda de Fibonacci. Su estrategia se caracterizaba por minimizar (por esto se llamaba mFS (movement-minimizing Fibonacci Search)) el número de movimientos que hacia la cabeza para encontrar el elemento deseado.
+
+Tradicionalmente, una búsqueda binaria funciona de la siguiente manera: (teniendo en cuenta que la lista esta ordenada linealmente, en caso contrario, se hace esto de primero)
+
+\begin{enumerate}
+    \item Se calcula el elemento medio de la lista.
+    \item Se compara el elemento con el deseado (\textit{key})
+    \item Dependiendo de si es mayor o menor, busca en el sector respectivo.
+    \item Vuelve a repetir el paso 1 a 3 hasta encontrar el elemento.
+\end{enumerate}
+
+Esta búsqueda es útil a la hora de encontrar elementos, sin embargo, no es la más óptima en términos de tiempos de búsqueda. 
+
+Para tener una idea cómo funciona la búsqueda de Fibonacci, se darán a continuación los pasos a cómo funciona: (de manera análoga, también deben estar los elementos organizados linealmente, en caso contrario, se hace esto primero)
+
+\begin{enumerate}
+    \item Se calcula el elemento medio de la lista usando los números de Fibonacci. Encontramos los índices usando la recursión de f(k-2) y f(k-1)
+    \item Se compara el elemento con el deseado (\textit{key})
+    \item Dependiendo de si es mayor o menor, busca en el sector respectivo.
+    \item Vuelve a repetir el paso 1 a 3 hasta encontrar el elemento.
+\end{enumerate}
+
+Ambos son parecidos, pero la de Fibonacci resulta más eficáz gracias a usar la secuencia de Fibonacci en vez de utilizar divisiones simples para hallar el punto medio.
+
+El algoritmo planteado por los autores funciona de manera análoga al de Fibonacci, con la diferencia donde se divide el rango de búsqueda en dos partes, sin embargo, a la hora de calcular el punto medio, se calcula de manera donde el menor de estos dos contenga el punto medio, esto con el propósito de poder minimizar el tiempo de búsqueda. Esta es la diferencia notoria con relación a la ya establecida.
+
+Como lo había dicho Knuth \cite{knuth1973art} en el artículo original: "El programa F (Búsqueda de Fibonacci) es ligeramente más rápido que programa C (Búsqueda Binaria Uniforme). Sin embargo, los autores afirman que no es suficiente para demostrar las diferencias que hay entre estos dos algoritmos. Gracias a esto, realizan diversas pruebas donde evalúan el tiempo de respuesta con base a un cierto número de elementos.
+
+Con esto en mente, al realizar dichas pruebas, la propuesta de los autores muestra una mejoría del 20\% con su modelo planteado contra la Búsqueda Binaria tradicional. Esto da un punto a favor al modelo planteado, puesto que refleja una mejoría en 4/5 del tiempo total. 
+
+Sin embargo, observándolo desde una perspectiva más global, las diferencias en cuestión de tiempo tienden a ser muy pocas, en el sentido que los seres humanos difícilmente pueden diferir de diferencias en milisegundos, por lo que se plantea la siguiente pregunta en la reseña: ¿es el tiempo una justificación propia para argumentar que la búsqueda de Fibonacci planteada por los autores es un mejor método?
+
+Los autores tienen la posición de que el método planteado no es necesariamente mejor a la búsqueda binaria, pero tiene aspectos que se pueden mejorar. De los aspectos relevantes, los de mayor prevalencia son: complejidad, limitaciones de hardware y tiempo de operación.
+
+Se tuvo en cuenta el tiempo de operación, donde el método planteado fue un 20\% superior. A continuación, se tendrá en cuenta el otro factor relevante en la reseña.
+
+La limitación de hardware implica que a gran escala, dependiendo de la organización, tamaño y densidad de los datos. Solamente esta variable puede definir el método a usar. Y a diferencia de la fecha en la cual se realizó dicho artículo (1987), la vanguardia de la tecnología ha avanzado a un punto donde se pueden realizar pruebas a tiempo real. Sin embargo, pruebas realizadas solo muestran el mismo panorama, donde la búsqueda de Fibonacci es ligeramente más rápido que la búsqueda binaria, y a pesar de todo esto, gracias a la simplicidad de la última, esta es la más usada.
+
+Por último, la eficacia de los métodos de búsqueda solo representa su utilidad en comparación a la información presentada, variables como el tamaño, el hardware, entre otros, puede determinar la versatilidad y eficacia de este mismo.
+
+\section{Conclusiones}
+
+En conjunto, los algoritmos de búsqueda son herramientas que son de gran utilidad para el uso específico que se necesite. Con los avances de la tecnología, es cuestión de tiempo entender y ver evoluciones en términos de eficacia, simplicidad e implementación. Ya sea Fibonacci, lineal, binaria, existen muchos métodos que tienen sus ventajas, desventajas y características en su respectivo contexto.
+
+Con lo anterior, siempre va a existir un margen de mejora en términos tecnológicos, y siempre se va a poder mejorar en ciertos aspectos a comparación de cómo fue en el pasado o lo es ahora.
+
+
+\bibliographystyle{unsrt}
+\bibliography{sample}
+
+\end{document}

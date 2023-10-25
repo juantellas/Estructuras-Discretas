@@ -1,0 +1,87 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{color}
+\usepackage{cite}
+
+\title{Lab02-ED-G02-JUAN CAMILO AGUIRRE GONZALEZ-200156480}
+\author{FUNDACIÓN UNIVERSIDAD DEL NORTE }
+\date{October 23 de 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{Latex}
+\subsection{Formulas matematicas}
+Utilice su ambiente matematico preferido para escribrir la siguiente formula:
+
+$$f(x)=\sum_{i=1}^{n-1}[100(x_{i+1}-x_{i}^2)^2+(1-x_{i})^2]$$ donde   $$X = (x_{1},...,x_{n})\epsilon  R^n. $$
+
+\section{Tablas}
+
+Reproduzca por lo menos cuatro lineas de la siguiente tabla:
+
+\vspace{0.5cm}
+
+
+
+    \begin{tabular}{c|c|c|c|c}
+         Bits &  Cuántos números & Cuales números & Mínimo & Máximo\\
+         1 & 2^1 & {0, 1} & 0 & 2^{1-1} \\
+         2 & 2^2 & {00,01, 10, 11}  & 0 & 2^2-1 \\
+         3 & 2^3 & {000,001, 010, 011, 100, 101,110,111} & 0 & 2^3-1  \\
+         ... & ... & ... & ... & ... \\
+         n & 2^n & {000...00, 000...01, ... 111 ... 11} & 0  & 2^{n-1} \\  
+    \end{tabular}
+
+    \hspace{4.5cm}\caption{Table 1:Caption}
+    \label{tab:my_label}
+
+
+
+    
+
+\newpage
+\section{Creación de nuevos comandos}
+Crear un comando(nombre tc) que haga lo siguiente:
+• Espacio en blanco
+
+• Enter
+
+• Texto(argumento 2) a color(argumento 1) en negrilla (color por defecto
+azul)
+
+• Espacio en blanco
+
+• Enter
+
+\newcommand{\tc}[2][\color{blue}]{ \\ \textbf{#2} #1 \\}  
+
+\vspace{0.5cm}
+
+\tc{argumento#1}{argumento#2}
+
+
+
+\color{black}
+\section{Citas, o referencias, bibliograficas}
+
+Busque las siguientes citas, en cualquier formato(APA, MLA, CHICAGO, etc.),
+e incluyalas en el documento como Bibliografıa:
+
+• A Posterior Ensemble Kalman Filter Based On A Modified Cholesky Decomposition
+
+• A Maximum Likelihood Ensemble Filter via a Modified Cholesky Decomposition for Non-Gaussian Data Assimilation
+
+• Diseño y construccion de algoritmos
+
+\vspace{0.6cm}
+
+hola profesor \cite{a39d2ed1-0f9a-3d52-a4b8-ccd73abfd907}
+espero se encuentre bien \cite{atmos8070125}
+el dia de hoy \cite{s20030877}
+
+\bibliography{bib/bibtestLAB}
+\bibliographystyle{plain}
+
+\end{document}

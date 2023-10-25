@@ -1,0 +1,80 @@
+\section{Batalla Naval (PC 1)}
+Para este problema se le ha encargado recrear con Python el popular juego de Batalla Naval. Para ello, deberá hacer uso de las estructuras de datos que considere más convenientes, utilizar clases y funciones. 
+
+Su labor consiste en ubicar los distintos barcos en el tablero, los cuales se generarán de forma aleatoria según la información suministrada por el usuario. Así mismo, tanto la toma de información como el resultado deben realizarse mediante una interfaz gráfica. Las naves por ubicar son:
+
+\begin{itemize}
+    \item \textbf{Submarino:} barco de tamaño 1 en la cuadrícula. 
+    \item \textbf{Destructor:} barco de tamaño 2 en la cuadrícula. 
+    \item \textbf{Crucero:} barco de tamaño 3 en la cuadrícula. 
+    \item \textbf{Portaaviones:} barco de tamaño 4 en la cuadrícula.
+\end{itemize}
+
+Tenga en cuenta que, al colocar un destructor, crucero o portaaviones, pueden ubicarse horizontal o verticalmente. No obstante, debe asegurarse de que el tablero cuente con la cantidad de celdas necesarias para ubicar dicho barco, y todos deben estar dentro del tablero. Adicional a esto, la cantidad de barcos es suministrada por el usuario, y estos deben ubicarse de manera aleatoria cumpliendo lo anteriormente mencionado. Recuerde que no pueden mostrarse resultados por consola. 
+\\
+
+\textcolor{red}{\textbf{Nota:} Usted tiene la libertad de añadir cualquier otra función o librería que considere necesario, sin embargo, la creación del barco debe realizarse siguiendo el siguiente esquema:}
+
+\begin{verbatim}
+# Importe las librerías que necesite. No olvide añadirlas al archivo
+requirements.txt
+
+import random
+
+tablero = # Aquí incluye la estructura de datos que considere conveniente. 
+
+class Barco:
+  """
+  La clase barco se utilizará para crear cada uno de ellos. 
+
+  Parámetros:
+  - nombre: Nombre asignado al Barco.
+  - tamaño: Cantidad de bloques que ocupa el barco en el tablero. 
+  Debe verificar que no sobrepase las dimensiones especificadas.
+  """
+  def __init__(self, nombre : str, tamaño : int):
+    self._name = nombre
+    self._size = tamaño
+        
+  def getNombre(self):
+    return self._name
+
+  def getSize(self):
+    return self._size
+
+  def ubicar(self):
+    # Método utilizado para ubicar el en el tablero.
+
+if __name__ == '__main__':
+  # A continuación un ejemplo de creación del barco:
+  destroyer = Barco('Destroyer', 2) # Se instancia el barco.
+  destroyer.ubicar() # Se ubica el barco en el tablero.
+  print(tablero) # Muestra el tablero al usuario.
+
+\end{verbatim}
+
+\newpage
+\section{Titulares de Fake News (PC 2)}
+
+Los \textit{Fake News} son cada vez más populares, si bien muchos de ellos son escritos manualmente para difundir contenido falso, otros son elaborados de manera automatizada. Entender cómo se generan, permite identificarlos de forma más sencilla. Por lo cual, realizará cada una de las distintas etapas que se ven involucradas en dicha labor. 
+De esta manera, se requiere que descargue una cantidad $n$ de titulares de un portal de noticias como \textcolor{cyan}{\href{https://www.bbc.com/mundo/topics/c67q9nnn8z7t}{BBC Mundo}}, mediante técnicas de \textit{web-scrapping}. Esta información debe ser almacenada en un archivo .csv autogenerado por el programa, que contenga la fecha de la noticia y el titular, y cualquier otro dato, de ser necesario. Así mismo, con los datos recopilados debe generar su propio titular falso utilizando Cadenas de Markov. Finalmente, retorne gráficos que permitan realizar un análisis de la información recopilada:
+\begin{itemize}
+    \item Distribución de frecuencia de las palabras utilizadas en todos los enunciados. Tener en cuenta una etapa previa de limpieza de la información para evitar las stop-words.
+    \item Palabra más usada por fecha de publicación de la noticia. Puede escoger el tipo de gráfico que considere más conveniente.
+    \item Cantidad de artículos publicados por fecha.
+    \item Nube de palabras más utilizadas.
+    \item Distribución de los 10 bigramas y trigramas más frecuentes.
+    \item Distribución de los tipos de palabras más frecuentes en los enunciados (adjetivos, verbos, pronombres, adverbios, etc.).
+\end{itemize}
+Genere 30 titulares aleatorios, basado en la información recopilada, y observe si los resultados se mantienen al realizar nuevamente el análisis anterior. Los resultados y las conclusiones obtenidas deben ser incluídas en el informe.
+\\
+
+\textcolor{red}{\textbf{Nota:} La solución debe implementarse utilizando las siguientes librerías de Python: Pandas, seaborn, matplotlib, bs4, urllib, nltk. Se recomienda utilizar técnicas de procesamiento de lenguaje natural (NLP, por sus siglas en inglés) para llevar a cabo los análisis de palabras.}
+
+\newpage
+\section{Cifrado César (Bot Telegram)}
+
+\begin{itemize}
+    \item Realice una función que codifique un mensaje utilizando el \textcolor{cyan}{\href{https://es.wikipedia.org/wiki/Cifrado_C\%C3\%A9sar}{Cifrado César}}. Teniendo en cuenta el desplazamiento ingresado por el usuario, y que el mensaje puede contener mayúsculas, números y puntuación.
+    \item Realice el descifrado de un mensaje codificado con Cifrado César. Para esta opción el usuario \textbf{no} ingresará la cantidad de letras desplazadas, y el mensaje cumple las especificaciones del ítem anterior.
+\end{itemize}

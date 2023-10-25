@@ -1,0 +1,123 @@
+\clearpage
+\section{Entrega 03: Bot de Telegram,Cifrado César, lenguajes naturales y cadenas de Markov, Diseño de funciones.}
+
+\section*{Problema 1: Bot de Telegram}
+Para los siguientes casos deben crear \textbf{UN} bot de Telegram (ver \cite{noauthor_telegram_nodate})
+\begin{itemize}
+    \item \textcolor{magenta}{Criptografía. El Cifrado César}
+\item  \textcolor{cyan}{Procesamiento de Lenguajes Naturales. Modelos de Markov}
+\end{itemize}
+
+
+El bot debe implementar las funcionalidades descritas a continuación. Es \textbf{obligatorio} un comando \texttt{\textbackslash ayuda} que describa qué hace el bot y qué comandos tiene. Además, en cada punto debe haber validación de los datos ingresados por el usuario. Cada comando debe mostrar o facilitar la comprensión del formato o la forma en que el usuario ingresa los datos.
+
+
+\section*{Cifrado César}
+    Realice una función que codifique un mensaje utilizando el \textcolor{cyan}{\href{https://es.wikipedia.org/wiki/Cifrado_C\%C3\%A9sar}{Cifrado César}}. Teniendo en cuenta el desplazamiento ingresado por el usuario, y que el mensaje puede contener mayúsculas, números y puntuación.\\
+    Realice el descifrado de un mensaje codificado con Cifrado César. Para esta opción el usuario \textbf{no} ingresará la cantidad de letras desplazadas, y el mensaje cumple las especificaciones del ítem anterior.\\
+
+El enunciado se refiere a que el usuario debe poder codificar el mensaje tal cual y como se envía. Es decir, su mensaje puede incluir números, tildes, y caracteres especiales. En este sentido, la idea consiste en modificar el cifrado tradicional de César, que solo contempla letras en su corrimiento o desplazamiento. El orden de estas no influye, siempre y cuando se mantenga en el cifrado y descifrado. Por otra parte, se le debe indicar al usuario cuál será el desplazamiento que pueda realizar para el cifrado.
+
+Un posible ejemplo de esto, sería descifrar el siguiente mensaje que tiene corrimiento de 15 carácteres:
+\begin{verbatim}
+THIt tH 92 BtCHpyt rúuG¿só R32 CkBtGDH N rpGprItGtH tHEtr_x¿AtH_f    
+\end{verbatim}
+
+Su respectivo descifrado es:
+\begin{verbatim}
+Este es UN mensaje c1fr4d0 CON números y caracteres espec_i4les_.    
+\end{verbatim}
+
+alfabeto = 
+\begin{verbatim}
+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-.áéíóú?!¿¡
+\end{verbatim}
+
+
+
+\section*{Lenguajes naturales y cadenas de Markov}
+
+Dado un sitio web estático, implemente \textit{web scraping} para obtener el texto plano del mismo. A partir de este, implemente un modelo de cadenas de Markov para generar un texto y retórnelo al usuario.
+
+Implementar un modelo de Markov de orden \textit{K} a partir del texto retornado. A partir de este modelo, deberán generar texto pseudo-aleatorio.
+
+\paragraph{Modelos de Markov}  Un modelo de Markov de orden $K=0$ asume que cada caracter tiene una probabilidad fija, independiente de los caracteres anteriores.
+Por ejemplo, si el texto base es "ababbabcdd", entonces las probabilidades asignadas son:
+\begin{align*}
+Pr(X=a)&=\frac{3}{10}=0.30, & 
+Pr(X=b)&=\frac{4}{10}=0.40,\\
+Pr(X=c)&=\frac{1}{10}=0.10, &
+Pr(X=d)&=\frac{2}{10}=0.20.
+\end{align*}
+Es decir, a la hora de generar texto, el siguiente caracter será generado a partir de las probabilidades ya calculadas.
+Este ejemplo es válido para un modelo de Markov de orden $K=0$. Sin embargo, para diferentes valores de $K$, lo que sucede es que las probabilidades dependen de los $K$ caracteres anteriores. Por ejemplo, si la cadena es "abbbcabcbbbcb" y $K=2$, entonces habrá cinco $K$-cadenas distintas: ab, ca, cb, bc y bb. Y a partir de estas cadenas, se determinan las probabilidades. Esto es: dada una $K$-cadena, cuál es la probabilidad de que el siguiente caracter sea $X$.
+En este ejemplo, las probabilidades serían:
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline
+        Llave & Probabilidades \\
+    \hline
+        ab & c: $1/2=0.5$; b: $1/2=0.5$\\
+    \hline
+        ca & b: $1/1=1.0$\\
+    \hline
+        cb & b: $1/1=1.0$\\
+    \hline
+        bc & a: $1/3\approx0.33$; b: $2/3\approx0.67$\\
+    \hline
+        bb & c: $2/4=1/2=0.5$; b: $2/4=1/2=0.5$\\
+    \hline
+    \end{tabular}
+    \caption{Tabla de probabilidades}
+    \label{tab:my_label}
+\end{table}
+
+Esto se interpreta de este modo: Si en el texto actual, los últimos 2 caracteres son "bc", el siguiente caracter será "a" con un 33.3 \% de probabilidad, o "b" con un 66.7 \% de probabiilidad.
+
+A partir de esto, deben realizar un programa en Python que haga lo siguiente:
+\begin{itemize}
+\item Dado un sitio web estático, implemente \textit{web scraping} para obtener el texto plano del mismo, guardar en archivo .txt . 
+
+    \item con el archivo \textit{.txt} de entrada y los parámetro $K$ y $N$. A partir del texto y del parámetro $K$, construir un modelo de Markov de orden $K$. Y usando este modelo, genere un texto de $N$ caracteres, donde los primeros $K$ caracteres del texto generado son los mismos $K$ primeros caracteres del archivo de texto.
+    
+    \item Debe permitir visualizar un histograma de las frecuencias de las $K$-tuplas de caracteres.
+\end{itemize}
+El programa debe permitir seleccionar si se desea visualizar el histograma o si se desea generar un texto, pero permitiendo cambiar de opción sin tener que reabrir el programa.
+
+
+\section*{Problema 2: \href{https://drive.google.com/file/d/1Wm4aUHqS0DDWuOz9t9etSarpcEuvZ_2I/view?usp=drive_link}{\textbf{\textcolor{blue}{\underline{Programa ECO-Uninorte. Reseña de artículo científico}}}} }
+Cada equipo tiene que realizar la reseña de un artículo escogido de la lista que entregará el profesor, sobre los temas estudiados en la asignatura, acorde con la guía anexa en el enlace anterior.
+
+\section*{Problema 3: Diseño de funciones recursivas(Enunciado pendiente)}
+
+\section*{Acerca del video}
+En esta entrega deben grabar un video, similar a \href{https://www.youtube.com/watch?v=ox09Jko1ErM/}
+{\textcolor{cyan}{este}}, explicando la solución a tres problemas, uno por cada entregable\\
+\underline{Cada estudiante del equipo}, presentará la solución del problema que acuerde con el profesor lapso de $5\le t\le 10$ minutos. Además, el equipo completo tiene que realizar una demostración del funcionamiento de su bot al profesor.
+
+\subsection*{Entregable}
+\begin{itemize}
+    \item Versión en PDF del informe. El cual debe tener:
+    \begin{itemize}
+        \item Presentación(Portada)
+        \item Tabla de contenido
+        \item Lista de tablas o figuras
+        \item Glosario (si se requiere)
+        \item Resumen o “Abstract”
+        \item Introducción
+        \item Problema de investigación, Objetivos y  Justificación de la investigación
+        \item Marco Teórico-conceptual
+        \item Metodología
+        \item Resultados
+        \item Conclusiones
+        \item Bibliografía
+        \item Anexos (Código con la correspondiente explicación.)
+    \end{itemize}
+    \item Código fuente en \LaTeX del informe, en formato \verb!.zip!.
+    \item Los archivos de Python correspondientes al bot. Adicionalmente, \textbf{deben} incluir el archivo \textit{requirements.txt} que lista los paquetes necesarios para la correcta ejecución de sus archivos de Python. Se recomienda ver \href{https://pip.pypa.io/en/stable/user\_guide/#requirements-files}{\textbf{este enlace}} para consultar sobre el formato de este archivo; pues los paquetes requeridos se instalarán usando el comando \verb!pip install -r requirements.txt!.
+    \item Todo debe ser montado a Brightspace por el capitán del equipo.
+\end{itemize}
+
+
+
